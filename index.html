@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>收录稀有级别网站|网站欣赏|网页设计参考|精美网站</title>
+		<meta name="description" content="本站收录了N个精美酷炫的网站，为设计师、程序猿提供网页设计参考。人工筛选优秀的网页设计作品">
+		<meta name="keywords" content="精美网站网页设计欣赏，精美网站，精美网页，网站欣赏，网页欣赏，网站设计，网站设计欣赏，网页设计欣赏">
+		<link rel="shortcut icon" href="src/img/azil-orange-ico.png">
+		<!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" /> -->
+		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="src/css/app.css" />
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<header class="my-header">
+				<img class="logo" src="src/img/azil-white.png">
+				<h1>收录稀有并使用的网站</h1>
+			</header>
+			
+			<main class="my-main">
+				
+				<section class="gallery-nav" id="gallery-nav">
+					<div class="container swiper-container">
+						<div class="swiper-wrapper">
+							<div v-for="item in gallery" v-if="item.data" :key="'nav-item-' + item.name" class="swiper-slide">
+								<span>{{ item.title }}</span>
+							</div>
+							<div class="bar">
+								<div class="color"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<section class="container gallery-box" id="gallery-box">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div v-for="(item, index) in gallery" v-if="item.data" :key="'slide-' + item.name" :data-hash="item.name" class="swiper-slide">
+								<ul class="nav">
+									<li v-for="(cItem, cIndex) in item.data" :key="'slide-' + index + '-li-' + cIndex" class="col-6 col-sm-4 col-md-3 gallery-item">
+										<a :href="cItem.href || '#'" target="_blank" :title="cItem.desc">
+											<div class="gallery-item-box">
+												<div class="gallery-item-img">
+													<img class="swiper-lazy" src="src/img/load.gif" :data-src="cItem.img">
+												</div>
+												<div class="gallery-item-text">
+													<h2 class="text-truncate title">
+														{{ cItem.title }}
+													</h2>
+													<p class="text-truncate desc">{{ cItem.desc }}</p>
+												</div>
+												<div class="gallery-item-meta">
+													<i class="fa fa-bookmark"></i>
+													<span class="pl-1">{{ item.name == 'newest' ? cItem.type : item.title }}</span>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			
+			<footer class="my-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 mb-2 text-center">Copyright © 2019 Azil</div>
+						<div class="col-md-4 text-center">
+							<a target="_blank" href="src/img/wechart.png" title="联系我"><i class="fa fa-wechat"></i></a>
+							<a target="_blank" href="https://github.com/topoadmin/"><i class="fa fa-github"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+		<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+		<script src="//cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js"></script>
+		<script src="//cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
+		<script src="src/js/main.js"></script>
+	</body>
+
+
+</html>

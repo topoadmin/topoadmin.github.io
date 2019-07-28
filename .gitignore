@@ -1,0 +1,6 @@
+static
+src/less
+.project
+node_modules
+gulpfile.js
+package.json
