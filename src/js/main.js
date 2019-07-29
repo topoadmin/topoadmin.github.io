@@ -26,9 +26,14 @@ function getGallery() {
 			name: 'design',
 			title: '设计',
 			data: [{
+				href: 'https://myslide.cn/',
+				title: 'MySlide',
+				desc: '一个提供PPT分享服务的平台，在这里你可以找到你想要的PPT',
+				img: 'https://slide.cdn.myslide.cn/ltaSBu6hWUqeydUe9lAKl67LQBXQ/thumbnail.jpg'
+			}, {
 				href: 'https://www.gaoding.com/tools',
 				title: '稿定设计',
-				desc: '提供抠图、拼图、装修等设计工具，让你的设计工作更加轻松。',
+				desc: '提供抠图、拼图、装修等设计工具，让你的设计工作更加轻松',
 				img: 'https://dancf-cdn.oss-cn-hangzhou.aliyuncs.com/gaodingx/assets/logo.svg'
 			}, {
 				href: 'https://www.islide.cc/',
@@ -107,7 +112,15 @@ function getGallery() {
 		},
 		{
 			name: 'admin',
-			title: '后台模板'
+			title: '后台模板',
+			data: [
+				{
+					href: 'http://themedesigner.in/demo/admin-press/main/index.html',
+					title: 'admin-press',
+					desc: '我个人非常喜欢这套UI',
+					img: 'http://themedesigner.in/demo/admin-press/assets/images/logo-icon.png'
+				}
+			]
 		}
 	]
 }

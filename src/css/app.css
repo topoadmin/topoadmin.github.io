@@ -225,10 +225,3 @@ a:active {
     height: 18.75rem;
   }
 }
-.text-truncate {
-  word-wrap: normal;
-  /* for IE */
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
