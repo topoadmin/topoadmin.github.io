@@ -196,10 +196,10 @@ function initFn() {
 		}
 	})
 	
-	const $nav = $('#gallery-nav')
-	const navTop = $nav.offset().top
-	const $html = $('html, body')
-	const $doc = $(document)
+	// const $nav = $('#gallery-nav')
+	// const navTop = $nav.offset().top
+	// const $html = $('html, body')
+	// const $doc = $(document)
 	
 	const gallerySwiper = new Swiper('#gallery-box>.swiper-container', {
 		watchSlidesProgress: true,
@@ -211,6 +211,7 @@ function initFn() {
 		lazy: {
 			loadPrevNext: true
 		},
+		autoHeight: true,
 		on: {
 			touchMove() {
   			const progress = this.progress
@@ -228,14 +229,12 @@ function initFn() {
   		},
 			transitionStart() {
 				// 当滚动位置大于导航距离顶部的距离时，切换内容滚动到顶部
-				console.log($doc.scrollTop());
-				console.log(navTop);
-				if ($(document).scrollTop() > navTop) {
-					$($html, $doc).animate({ scrollTop: navTop + $nav.height()  }, {
-						duration: 100,
-						easing: 'swing'
-					})
-				}
+				// if ($(document).scrollTop() > navTop) {
+				// 	$($html, $doc).animate({ scrollTop: navTop + $nav.height()  }, {
+				// 		duration: 100,
+				// 		easing: 'swing'
+				// 	})
+				// }
 				const activeIndex = this.activeIndex
 				const activeSlidePosition = galleryNavSwiper.slides[activeIndex].offsetLeft
   			// 释放时导航粉色条移动过渡
