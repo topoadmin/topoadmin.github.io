@@ -11,26 +11,37 @@
 		<meta name="keywords" content="精美网站网页设计欣赏，精美网站，精美网页，网站欣赏，网页欣赏，网站设计，网站设计欣赏，网页设计欣赏">
 		<link rel="shortcut icon" href="src/img/azil-orange-ico.png">
 		<!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" /> -->
-		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"/> -->
 		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="src/css/app.css" />
+		<script src="//at.alicdn.com/t/font_1323595_6ys3o7gv4e7.js"></script>
 	</head>
 
 	<body>
+		<div style="display: none;" alt="分享抓取内容">
+			<img class="d-none" src="src/img/azil-blue-ico.png" alt="分享图片" >
+			<h1>收录稀有网站、各种模板、和境外网站</h1>
+		</div>
 		<div id="app" v-cloak>
 			<header class="my-header">
 				<img class="logo" src="src/img/azil-white.png">
-				<h1>收录稀有网站、各种模板、和境外网站</h1>
+				<div class="search">
+					<form @submit.prevent="query">
+						<input v-model="search.text" type="text" maxlength="15" placeholder="模糊搜索" />
+					</form>
+					<div class="alert alert-danger search-alert" v-if="searchAlert" role="alert">
+						系统提示：搜索开发中！
+					</div>
+				</div>
 			</header>
 			
 			<main class="my-main">
-				
 				<section class="gallery-nav" id="gallery-nav">
 					<div class="container swiper-container">
 						<div class="swiper-wrapper">
-							<div v-for="item in gallery" v-if="item.data" :key="'nav-item-' + item.name" class="swiper-slide">
-								<span>{{ item.title }}</span>
+							<div v-for="item in gallery" v-if="item.data" :key="'nav-item-' + item.name" class="swiper-slide text-truncate">
+								<span :title="item.title">{{ item.title }}</span>
 							</div>
 							<div class="bar">
 								<div class="color"></div>
@@ -43,23 +54,28 @@
 					<div class="swiper-container">
 						<div class="swiper-wrapper">
 							<div v-for="(item, index) in gallery" v-if="item.data" :key="'slide-' + item.name" :data-hash="item.name" class="swiper-slide">
-								<ul class="nav">
-									<li v-for="(cItem, cIndex) in item.data" :key="'slide-' + index + '-li-' + cIndex" class="col-6 col-sm-4 col-md-3 gallery-item">
+								<ul :class="'gallery-mode-' + mode" class="nav" >
+									<li v-for="(cItem, cIndex) in item.data" :key="'slide-' + index + '-li-' + cIndex"
+										class="col-md-6 col-lg-4 gallery-item">
 										<a :href="cItem.href || '#'" target="_blank" :title="cItem.desc">
 											<div class="gallery-item-box">
 												<div class="gallery-item-img">
 													<img class="swiper-lazy" src="src/img/load.gif" :data-src="cItem.img">
 												</div>
+												<div class="gallery-item-meta clearfix">
+													<div class="address">
+														<svg class="icon" aria-hidden="true">
+															<use :xlink:href="'#icon-' + cItem.address "></use>
+														</svg>
+													</div>
+													<div class="tag">{{ item.name == 'newest' ? cItem.type : item.title }}</div>
+													<div class="tag title text-truncate">{{ cItem.title }}</div>
+												</div>
+												
 												<div class="gallery-item-text">
-													<h2 class="text-truncate title">
-														{{ cItem.title }}
-													</h2>
-													<p class="text-truncate desc">{{ cItem.desc }}</p>
+													<p class="line-clamp desc">{{ cItem.desc }}</p>
 												</div>
-												<div class="gallery-item-meta">
-													<i class="fa fa-bookmark"></i>
-													<span class="pl-1">{{ item.name == 'newest' ? cItem.type : item.title }}</span>
-												</div>
+												
 											</div>
 										</a>
 									</li>
@@ -73,21 +89,52 @@
 			<footer class="my-footer">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 mb-2 text-center">Copyright © 2019 Azil</div>
-						<div class="col-md-4 text-center">
-							<a target="_blank" href="src/img/wechart.png" title="联系我"><i class="fa fa-wechat"></i></a>
-							<a target="_blank" href="https://github.com/topoadmin/"><i class="fa fa-github"></i></a>
-						</div>
+						<p class="col-12">收录稀有网站、各种模板、和境外网站</p>
+						<p class="col-md-8">Copyright © 2019 Azil</p>
+						<p class="col-md-4">
+							<a target="_blank" href="src/img/wechart.png" title="联系我">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#icon-wechat"></use>
+								</svg>
+							</a>
+							<a target="_blank" href="https://github.com/topoadmin/">
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#icon-github"></use>
+								</svg>
+							</a>
+						</p>
 					</div>
 				</div>
 			</footer>
+		
+			<div class="fixed-tools">
+				<ul>
+					<li id="go-top" class="go-top" title="返回顶部">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-up"></use>
+						</svg>
+					</li>
+				</ul>
+			</div>
+		
 		</div>
 		
+		<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
 		<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
 		<script src="//cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js"></script>
 		<script src="//cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
 		<script src="src/js/main.js"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?7d07293c8b1cda84d57f1a61957a2719";
+				var s = document.getElementsByTagName("script")[0]; 
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
 	</body>
 
 
