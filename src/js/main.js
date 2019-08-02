@@ -342,9 +342,6 @@ const vueModel = new Vue({
 			setTimeout(() => {
 				this.searchAlert = false
 			}, 3000)
-		},
-		to(href) {
-			window.open(href, '_blank', ''); 
 		}
 	}
 })
@@ -560,5 +557,19 @@ function initFn() {
 			}
 		},
 		debug: true
+	})
+	
+	let $inputStatus = true
+	$searchInput.on('focus', function() {
+		$inputStatus = false
+	}).on('blur', function() {
+		setTimeout(function() {
+			$inputStatus = true
+		}, 150)
+	})
+	$('.gallery-item').on('click', 'a', function() {
+		if ($inputStatus) {
+			window.open($(this).data('href'), '_blank', ''); 
+		}
 	})
 }

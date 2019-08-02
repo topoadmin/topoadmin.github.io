@@ -19,9 +19,9 @@
 	</head>
 
 	<body>
-		<div style="visibility: hidden;z-index: -100;position: absolute;top: 0;left: 0;width: 1px;height: 1px;" alt="分享抓取内容">
-			<img class="d-none" src="src/img/azil-blue-ico.png" alt="分享图片">
-			<h1>收录精美网站、各种模板、和境外网站</h1>
+		<div style="visibility: visible;z-index: -100;position: absolute;top: -100vh;left: 0;width: 1px;height: 1px;" alt="分享抓取内容">
+			<img style="width: 1px; height: 1px;" class="d-none" src="src/img/azil-blue-ico.png" alt="分享图片">
+			<h1 style="font-size: 1px;">收录精美网站、各种模板、和境外网站</h1>
 		</div>
 		<div id="app" v-cloak>
 			<header class="my-header">
@@ -67,8 +67,7 @@
 							<div v-for="(item, index) in gallery" v-if="item.data" :key="'slide-' + (item.random || item.name)" :data-hash="item.name" class="swiper-slide">
 								<ul :class="'gallery-mode-' + mode" class="nav">
 									<li v-for="(cItem, cIndex) in item.data" :key="'slide-' + index + '-li-' + cIndex" class="col-md-6 col-lg-4 gallery-item">
-										<!-- <a :href="cItem.href || '#'" target="_blank" :title="cItem.desc"> -->
-										<a href="#" @click="to(cItem.href)" :title="cItem.desc">
+										<a href="javascript:void(0);" :data-href="cItem.href" :title="cItem.desc">
 											<div class="gallery-item-box">
 												<div class="gallery-item-img">
 													<img src="src/img/load.gif" v-lazy="cItem.img">
