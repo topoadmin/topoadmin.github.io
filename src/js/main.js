@@ -234,6 +234,14 @@ const ACOLOR = 'rgba(' + ACOLORS.join() +  ')'
 const BCOLORS = [255, 255, 255, 1]
 const BCOLOR = 'rgba(' + BCOLORS.join() +  ')'
 
+
+Vue.use(VueLazyload, {
+	preLoad: 1.3,
+	error: '/src/img/load.gif',
+	loading: '/src/img/load.gif',
+	attempt: 1
+})
+		
 /* 渲染数据 */
 const vueModel = new Vue({
 	el: '#app',
@@ -242,10 +250,6 @@ const vueModel = new Vue({
 		const arr = []
 		gallery.forEach(item => {
 			if ($.isArray(item.data) && item.data.length) {
-				// const nArr = item.data.map(row => {
-				// 	row.type = item.title
-				// 	return row
-				// })
 				arr.push(...item.data)
 			}
 		})
@@ -399,9 +403,9 @@ function initFn() {
 		resistanceRatio: 0,
 		roundLengths: true,
 		// hashNavigation: true,
-		lazy: {
-			loadPrevNext: true
-		},
+		// lazy: {
+		// 	loadPrevNext: true
+		// },
 		autoHeight: true,
 		on: {
 			init() {
