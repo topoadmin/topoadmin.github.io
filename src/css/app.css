@@ -91,7 +91,7 @@ small {
 }
 @media (max-width: 577px) {
   .typeahead__backdrop {
-    height: 100vh;
+    height: 120vh;
   }
   .typeahead__cancel-button,
   .typeahead__filter,

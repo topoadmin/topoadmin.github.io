@@ -342,6 +342,9 @@ const vueModel = new Vue({
 			setTimeout(() => {
 				this.searchAlert = false
 			}, 3000)
+		},
+		to(href) {
+			window.open(href, '_blank', ''); 
 		}
 	}
 })

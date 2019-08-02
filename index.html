@@ -67,11 +67,11 @@
 							<div v-for="(item, index) in gallery" v-if="item.data" :key="'slide-' + (item.random || item.name)" :data-hash="item.name" class="swiper-slide">
 								<ul :class="'gallery-mode-' + mode" class="nav">
 									<li v-for="(cItem, cIndex) in item.data" :key="'slide-' + index + '-li-' + cIndex" class="col-md-6 col-lg-4 gallery-item">
-										<a :href="cItem.href || '#'" target="_blank" :title="cItem.desc">
+										<!-- <a :href="cItem.href || '#'" target="_blank" :title="cItem.desc"> -->
+										<a href="#" @click="to(cItem.href)" :title="cItem.desc">
 											<div class="gallery-item-box">
 												<div class="gallery-item-img">
-													<img v-lazy="cItem.img">
-													<!-- <img class="swiper-lazy" src="src/img/load.gif" :data-src="cItem.img"> -->
+													<img src="src/img/load.gif" v-lazy="cItem.img">
 												</div>
 												<div class="gallery-item-meta clearfix">
 													<div class="address ml-0" @click.stop.prevent="hanlderTag('address', cItem.address)">
