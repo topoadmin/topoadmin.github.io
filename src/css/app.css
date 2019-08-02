@@ -45,12 +45,31 @@ a:active {
   height: 3rem;
   padding-top: .5rem;
 }
-.my-header .search input {
-  width: 80%;
+.my-header .search form {
+  margin: 0 auto;
+  width: 60%;
+  min-width: 300px;
   height: 2rem;
-  text-align: center;
+  position: relative;
+}
+.my-header .search form input {
+  width: 100%;
+  padding: 0 1rem;
+  height: 100%;
   border-radius: 0.1875rem;
   border: none;
+}
+.my-header .search form .header-search-list {
+  max-height: 300px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.my-header .search form .header-search-list > li span.typeahead__display {
+  display: inline-block;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 @media (min-width: 576px) {
   .my-header {
@@ -58,6 +77,16 @@ a:active {
   }
   .my-header .logo {
     height: 5rem;
+  }
+}
+@media (max-width: 577px) {
+  .typeahead__backdrop {
+    height: 100vh;
+  }
+  .typeahead__cancel-button,
+  .typeahead__filter,
+  .typeahead__button {
+    display: none;
   }
 }
 .icon {
@@ -110,7 +139,7 @@ a:active {
 .search-alert {
   position: absolute;
   left: 10%;
-  z-index: 99;
+  z-index: 1050;
   width: 80%;
   top: 0;
   -webkit-transform: translateY(3rem);
@@ -137,6 +166,7 @@ a:active {
     -webkit-transform: translateY(6rem);
             transform: translateY(6rem);
     margin-top: -3rem;
+    margin-bottom: 6rem;
   }
   body .gallery-box {
     -webkit-transition: -webkit-transform 0.3s ease-in-out 0s;
@@ -153,6 +183,7 @@ a:active {
   body.scroll .my-main {
     -webkit-transform: translateY(3rem);
             transform: translateY(3rem);
+    margin-bottom: 3rem;
   }
 }
 .my-footer {
@@ -227,7 +258,7 @@ a:active {
 }
 .gallery-box .gallery-item .gallery-item-img img {
   width: 100%;
-  height: 12rem;
+  height: 16rem;
   object-fit: contain;
   -webkit-transition: -webkit-transform .5s ease 0s;
   transition: -webkit-transform .5s ease 0s;
@@ -256,6 +287,7 @@ a:active {
   border-radius: 0.625rem;
   font-size: 0.625rem;
   padding: 0.1875rem;
+  cursor: pointer;
 }
 .gallery-box .gallery-item .gallery-item-meta .tag.title {
   max-width: 8rem;
@@ -266,6 +298,16 @@ a:active {
 .gallery-box .gallery-item:hover .gallery-item-img img {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+@media (max-width: 577px) {
+  .gallery-box .gallery-item {
+    padding: 0;
+  }
+}
+@media (min-width: 576px) {
+  .gallery-box .gallery-item .gallery-item-img img {
+    height: 12rem;
+  }
 }
 @media (min-width: 768px) {
   .gallery-nav .swiper-slide {
