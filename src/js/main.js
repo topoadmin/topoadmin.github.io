@@ -3,7 +3,8 @@ FastClick.attach(document.body)
 /* 返回数据 */
 function getGallery() {
 	const r = 'src/img/case/'
-	return [{
+	return [
+		{
 			name: 'net',
 			title: '互联网',
 			data: [{
@@ -13,7 +14,7 @@ function getGallery() {
 				address: 'CN',
 				type: '互联网',
 				date: '2019-7-28 20:53:59',
-				img: r + 'guozhivip.jpg'
+				img: 'https://ae01.alicdn.com/kf/H6a347d40ed2b4a9f909a00ecf0558715l.png'
 			}, {
 				href: 'https://www.anyknew.com/',
 				title: 'AnyKnew | 效率资讯',
@@ -42,7 +43,7 @@ function getGallery() {
 				address: 'CN',
 				type: '设计',
 				date: '2019-7-28 20:53:59',
-				img: r + 'my-slide.jpg'
+				img: 'https://ae01.alicdn.com/kf/Hd894fbabe656456fa2120f3372d1d118d.jpg'
 			}, {
 				href: 'https://www.gaoding.com/tools',
 				title: '稿定设计',
@@ -50,7 +51,7 @@ function getGallery() {
 				address: 'CN',
 				type: '设计',
 				date: '2019-7-28 20:53:59',
-				img: r + 'gaoding.jpg'
+				img: 'https://ae01.alicdn.com/kf/H641c4ae766c545b3b55107e63d25dc38q.jpg'
 			}, {
 				href: 'https://www.islide.cc/',
 				title: 'iSlide',
@@ -58,7 +59,7 @@ function getGallery() {
 				address: 'CN',
 				type: '设计',
 				date: '2019-7-28 20:53:59',
-				img: r + 'islide.jpg'
+				img: 'https://ae01.alicdn.com/kf/H4a02bbfe6f1d456e94fbc95d536cfca89.jpg'
 			}, {
 				href: 'https://www.chuangkit.com/',
 				title: '创客贴',
@@ -67,7 +68,40 @@ function getGallery() {
 				type: '设计',
 				date: '2019-7-28 20:53:59',
 				img: 'https://www.chuangkit.com/distweb/img/logo-colored-2019.11081299.svg'
-			}]
+			}, {
+				href: 'https://www.lifeofpix.com/',
+				title: 'Life of pix',
+				desc: '免费高分辨率摄影',
+				address: 'US',
+				type: '设计',
+				date: '2019-08-02 15:36:31',
+				img: 'https://ae01.alicdn.com/kf/H73921da6ca7b475194061ec287d7c30fB.jpg'
+			}, {
+				href: 'https://www.piqsels.com/zh/',
+				title: 'piqsels',
+				desc: '基于CC0协议的免版税图库，个人和商业免费使用，无需归属',
+				address: 'US',
+				type: '设计',
+				date: '2019-08-02 15:41:40',
+				img: 'https://ae01.alicdn.com/kf/H6db188278d944861a2d8aae28e42559cO.jpg'
+			}, {
+				href: 'https://www.pexels.com/',
+				title: 'pexels',
+				desc: '分享的免费图片和视频',
+				address: 'US',
+				type: '设计',
+				date: '2019-08-02 15:55:14',
+				img: 'https://ae01.alicdn.com/kf/H2fd22fba898949c997fd2c66a541427c6.jpg'
+			}, {
+				href: 'https://magdeleine.co/',
+				title: 'Magdeleine',
+				desc: '为您每天精心挑选的免费照片',
+				address: 'DE',
+				type: '设计',
+				date: '2019-08-02 16:01:31',
+				img: 'https://ae01.alicdn.com/kf/Hd7e4b06c539f4b8d966dde91f2b93324x.jpg'
+			}
+			]
 		},
 		{
 			name: 'tools',
@@ -88,7 +122,7 @@ function getGallery() {
 					address: 'CN',
 					type: '工具',
 					date: '2019-7-28 20:53:59',
-					img: r + 'superbed.jpg'
+					img: 'https://ae01.alicdn.com/kf/Hf22dc2fbb292444cb6a851a57ca6d6cab.jpg'
 				}
 			]
 		},
@@ -116,7 +150,7 @@ function getGallery() {
 					address: 'JP',
 					type: '电子商务',
 					date: '2019-7-29 11:30:00',
-					img: r + '8wu.jpg'
+					img: 'https://ae01.alicdn.com/kf/H92563bb0900c4e759dcac515a472afb9F.jpg'
 				},
 				{
 					href: 'https://www.opera-net.jp/',
@@ -125,7 +159,7 @@ function getGallery() {
 					address: 'JP',
 					type: '电子商务',
 					date: '2019-7-29 12:41:28',
-					img: r + 'opera.jpg'
+					img: 'https://ae01.alicdn.com/kf/Hd24155f483e64a36aaf847da9e407d98B.png'
 				}
 			]
 		},
@@ -143,7 +177,7 @@ function getGallery() {
 				address: 'CN',
 				type: '建站',
 				date: '2019-7-28 20:53:59',
-				img: r + 'teamthink.jpg'
+				img: 'https://ae01.alicdn.com/kf/H76922d220d2c4d8ab99ee15346f32100t.jpg'
 			}, {
 				href: 'https://www.shuwon.com/',
 				title: '成都蜀美',
@@ -151,7 +185,7 @@ function getGallery() {
 				address: 'CN',
 				type: '建站',
 				date: '2019-7-28 20:53:59',
-				img: r + 'shuwon.jpg'
+				img: 'https://ae01.alicdn.com/kf/H25e0d686ab4e40f591b52d6588df177an.jpg'
 			}]
 		},
 		{
@@ -164,7 +198,7 @@ function getGallery() {
 				address: 'IN',
 				type: '后台模板',
 				date: '2019-7-29 16:39:22',
-				img: r + 'admin-press.jpg'
+				img: 'https://ae01.alicdn.com/kf/Hb44773289b114aa1ab9a43fead1af9950.jpg'
 			}]
 		}
 	]
@@ -195,11 +229,10 @@ const GALLERYOBJCN = {
 	'国家': 'address'
 }
 
-
-const aColors = [244, 124, 72, 1]
-const aColor = 'rgba(' + aColors.join() +  ')'
-const bColors = [255, 255, 255, 1]
-const bColor = 'rgba(' + bColors.join() +  ')'
+const ACOLORS = [244, 124, 72, 1]
+const ACOLOR = 'rgba(' + ACOLORS.join() +  ')'
+const BCOLORS = [255, 255, 255, 1]
+const BCOLOR = 'rgba(' + BCOLORS.join() +  ')'
 
 /* 渲染数据 */
 const vueModel = new Vue({
@@ -284,12 +317,12 @@ const vueModel = new Vue({
 			
 			this.$nextTick(() => {
 				this.galleryNavSwiper.update()
-				this.galleryNavSwiper.slides.css('color', bColor)
+				this.galleryNavSwiper.slides.css('color', BCOLOR)
 				this.gallerySwiper.update()
 				this.gallerySwiper.lazy.load()
 				setTimeout(() => {
 					this.gallerySwiper.slideTo(0)
-					this.galleryNavSwiper.slides.eq(0).css('color', aColor)
+					this.galleryNavSwiper.slides.eq(0).css('color', ACOLOR)
 				}, 0)
 			})
 		},
@@ -333,7 +366,7 @@ function initFn() {
 		}
 		setTimeout(function() {
 			if (gallerySwiper.active == swiper.activeIndex) {
-				swiper.slides.eq(swiper.activeIndex).css('color', aColor)
+				swiper.slides.eq(swiper.activeIndex).css('color', ACOLOR)
 			}
 		}, 0)
 	}
@@ -373,7 +406,7 @@ function initFn() {
 		on: {
 			init() {
 				const activeIndex = this.activeIndex
-				galleryNavSwiper.slides.eq(activeIndex).css('color', aColor)
+				galleryNavSwiper.slides.eq(activeIndex).css('color', ACOLOR)
 			},
 			touchMove() {
 				const progress = this.progress
@@ -382,10 +415,10 @@ function initFn() {
 				for (i = 0; i < this.slides.length; i++) {
 					slideProgress = this.slides[i].progress
 					if (Math.abs(slideProgress) < 1) {
-						r = Math.floor((aColors[0] - bColors[0]) * (1 - Math.pow(Math.abs(slideProgress), 2)) + bColors[0])
-						g = Math.floor((aColors[1] - bColors[1]) * (1 - Math.pow(Math.abs(slideProgress), 2)) + bColors[1])
-						b = Math.floor((aColors[2] - bColors[2]) * (1 - Math.pow(Math.abs(slideProgress), 2)) + bColors[2])
-						galleryNavSwiper.slides.eq(i).css('color', 'rgba(' + r + ',' + g + ',' + b + ', ' + bColors[3] + ' )')
+						r = Math.floor((ACOLORS[0] - BCOLORS[0]) * (1 - Math.pow(Math.abs(slideProgress), 2)) + BCOLORS[0])
+						g = Math.floor((ACOLORS[1] - BCOLORS[1]) * (1 - Math.pow(Math.abs(slideProgress), 2)) + BCOLORS[1])
+						b = Math.floor((ACOLORS[2] - BCOLORS[2]) * (1 - Math.pow(Math.abs(slideProgress), 2)) + BCOLORS[2])
+						galleryNavSwiper.slides.eq(i).css('color', 'rgba(' + r + ',' + g + ',' + b + ', ' + BCOLORS[3] + ' )')
 					}
 				}
 			},
@@ -397,14 +430,14 @@ function initFn() {
 				bar.transform('translateX(' + activeSlidePosition + 'px)')
 				// 释放时文字变色过渡
 				galleryNavSwiper.slides.eq(activeIndex).transition(tSpeed)
-				galleryNavSwiper.slides.eq(activeIndex).css('color', aColor)
+				galleryNavSwiper.slides.eq(activeIndex).css('color', ACOLOR)
 				if (activeIndex > 0) {
 					galleryNavSwiper.slides.eq(activeIndex - 1).transition(tSpeed)
-					galleryNavSwiper.slides.eq(activeIndex - 1).css('color', bColor)
+					galleryNavSwiper.slides.eq(activeIndex - 1).css('color', BCOLOR)
 				}
 				if (activeIndex < this.slides.length) {
 					galleryNavSwiper.slides.eq(activeIndex + 1).transition(tSpeed)
-					galleryNavSwiper.slides.eq(activeIndex + 1).css('color', bColor)
+					galleryNavSwiper.slides.eq(activeIndex + 1).css('color', BCOLOR)
 				}
 				// 导航居中
 				if (navWidth > clientWidth) {
@@ -428,8 +461,8 @@ function initFn() {
 
 	galleryNavSwiper.on('tap', function(e) {
 		const index = this.clickedIndex
-		this.slides.css('color', bColor)
-		this.slides.eq(index).css('color', aColor)
+		this.slides.css('color', BCOLOR)
+		this.slides.eq(index).css('color', ACOLOR)
 		gallerySwiper.slideTo(index)
 	})
 	
@@ -481,7 +514,7 @@ function initFn() {
 	source[GALLERYOBJ.address] = {
 		display: ['name', 'value'],
 		data: _.uniqBy(addressList, 'name'),
-		template: '<span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-{{value}}"></use></svg><span class="pl-2 pr-2">{{name}}</span><small style="color: #777;">{{value}}</small></span>'
+		template: '<span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-{{value}}"></use></svg><span class="pl-2 pr-2">{{name}}</span><small>{{value}}</small></span>'
 	}
 	source[GALLERYOBJ.title] = {
 		display: ['name', 'value'],

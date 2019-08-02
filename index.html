@@ -10,7 +10,6 @@
 		<meta name="description" content="本站收录了N个精美酷炫的网站，为设计师、程序猿提供网页设计参考。人工筛选优秀的网页设计作品">
 		<meta name="keywords" content="精美网站网页设计欣赏，精美网站，精美网页，网站欣赏，网页欣赏，网站设计，网站设计欣赏，网页设计欣赏">
 		<link rel="shortcut icon" href="src/img/azil-orange-ico.png">
-		<!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" /> -->
 		<link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="src/css/app.css" />
@@ -39,10 +38,10 @@
 								</span>
 							</div>
 						</div>
+						<div class="alert alert-danger search-alert" v-if="searchAlert" role="alert">
+							系统提示：没有搜索结果！
+						</div>
 					</form>
-					<div class="alert alert-danger search-alert" v-if="searchAlert" role="alert">
-						系统提示：没有搜索结果！
-					</div>
 				</div>
 			</header>
 
@@ -72,7 +71,7 @@
 													<img class="swiper-lazy" src="src/img/load.gif" :data-src="cItem.img">
 												</div>
 												<div class="gallery-item-meta clearfix">
-													<div class="address" @click.stop.prevent="hanlderTag('address', cItem.address)">
+													<div class="address ml-0" @click.stop.prevent="hanlderTag('address', cItem.address)">
 														<svg class="icon" aria-hidden="true">
 															<use :xlink:href="'#icon-' + cItem.address "></use>
 														</svg>
@@ -82,7 +81,10 @@
 												</div>
 
 												<div class="gallery-item-text">
-													<p class="line-clamp desc">{{ cItem.desc }}</p>
+													<p class="line-clamp m-0 desc">
+														{{ cItem.desc }}
+													</p>
+													<small>{{ cItem.date }}</small>
 												</div>
 
 											</div>
