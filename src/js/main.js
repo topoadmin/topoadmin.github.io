@@ -1,5 +1,7 @@
 FastClick.attach(document.body)
 
+const DEVICE = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) ? 'mobile' : 'pc'
+
 /* 返回数据 */
 function getGallery() {
 	const r = 'src/img/case/'
@@ -587,13 +589,16 @@ function initFn() {
 	
 	let $inputStatus = true
 	$searchInput.on('focus', function() {
-		$inputStatus = false
+		if (DEVICE === 'mobile') $inputStatus = false
 	}).on('blur', function() {
-		setTimeout(function() {
-			$inputStatus = true
-		}, 150)
+		if (DEVICE === 'mobile') {
+			setTimeout(function() {
+				$inputStatus = true
+			}, 150)
+		}
 	})
-	$('.gallery-item').on('click', 'a', function() {
+	$('#gallery-box').on('click', 'a', function() {
+		console.log($inputStatus);
 		if ($inputStatus) {
 			window.open($(this).data('href'), '_blank', ''); 
 		}
