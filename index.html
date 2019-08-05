@@ -15,7 +15,8 @@
 		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="src/css/app.css" />
 		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/jquery-typeahead/2.10.6/jquery.typeahead.min.css" />
-		<script src="src/js/font_1323595_m0xac8xd9k.js"></script>
+		<!-- <script src="src/js/font_1323595_m0xac8xd9k.js"></script> -->
+		<script src="//at.alicdn.com/t/font_1323595_oqleomtwg7.js"></script>
 	</head>
 
 	<body>
@@ -67,10 +68,10 @@
 							<div v-for="(item, index) in gallery" v-if="item.data" :key="'slide-' + (item.random || item.name)" :data-hash="item.name" class="swiper-slide">
 								<ul :class="'gallery-mode-' + mode" class="nav">
 									<li v-for="(cItem, cIndex) in item.data" :key="'slide-' + index + '-li-' + cIndex" class="col-md-6 col-lg-4 gallery-item">
-										<a href="javascript:void(0);" :data-href="cItem.href" :title="cItem.desc">
+										<a href="javascript:void(0);" :data-href="cItem.href">
 											<div class="gallery-item-box">
 												<div class="gallery-item-img">
-													<img src="src/img/load.gif" v-lazy="cItem.img">
+													<img src="src/img/load.gif" v-lazy="cItem.img" :title="cItem.desc">
 												</div>
 												<div class="gallery-item-meta clearfix">
 													<div class="address ml-0" @click.stop.prevent="hanlderTag('address', cItem.address)">

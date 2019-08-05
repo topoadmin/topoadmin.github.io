@@ -146,7 +146,7 @@ function getGallery() {
 					href: 'http://8ya.jp/',
 					title: '八屋',
 					tag: '餐饮',
-					desc: '简洁美 | 卖茶的',
+					desc: '简洁的卖茶网站',
 					address: 'JP',
 					type: '电子商务',
 					date: '2019-7-29 11:30:00',
@@ -155,11 +155,29 @@ function getGallery() {
 				{
 					href: 'https://www.opera-net.jp/',
 					title: 'opera',
-					desc: '错位美 | 卖口红的',
+					desc: '卖口红',
 					address: 'JP',
 					type: '电子商务',
 					date: '2019-7-29 12:41:28',
 					img: 'https://ae01.alicdn.com/kf/Hd24155f483e64a36aaf847da9e407d98B.png'
+				},
+				{
+					href: 'https://www.slou.co.kr/',
+					title: 'slou',
+					desc: '家具、床上用品',
+					address: 'KR',
+					type: '电子商务',
+					date: '2019-08-05 14:59:42',
+					img: 'https://ae01.alicdn.com/kf/Hee1362f62c86463280c1979e210a734bE.jpg'
+				},
+				{
+					href: 'http://www.tayunguan.cn/',
+					title: '汉服·踏云馆',
+					desc: '着我汉家衣裳，兴我礼仪之邦',
+					address: 'CN',
+					type: '电子商务',
+					date: '2019-08-05 15:27:33',
+					img: 'https://ae01.alicdn.com/kf/H700b6df4648e4dcaa90d2fee6f0625edA.jpg'
 				}
 			]
 		},
@@ -248,8 +266,14 @@ const vueModel = new Vue({
 	data() {
 		const gallery = getGallery()
 		const arr = []
+		
+		console.time('数据处理结束')
+		
 		gallery.forEach(item => {
 			if ($.isArray(item.data) && item.data.length) {
+				item.data.sort((x, y) => {
+					return new Date(y.date).getTime() - new Date(x.date).getTime()
+				})
 				arr.push(...item.data)
 			}
 		})
@@ -263,6 +287,8 @@ const vueModel = new Vue({
 			}).filter((item, index) => index < 12)
 		}
 		gallery.unshift(newest)
+		
+		console.timeEnd('数据处理结束')
 		
 		return {
 			searchRes: [],
@@ -402,7 +428,7 @@ function initFn() {
 		watchSlidesProgress: true,
 		resistanceRatio: 0,
 		roundLengths: true,
-		// hashNavigation: true,
+		hashNavigation: true,
 		// lazy: {
 		// 	loadPrevNext: true
 		// },
