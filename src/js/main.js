@@ -76,14 +76,16 @@ function getGallery() {
 				desc: '免费高分辨率摄影',
 				address: 'US',
 				type: '设计',
+				tag: '免费图片',
 				date: '2019-08-02 15:36:31',
-				img: 'https://ae01.alicdn.com/kf/H73921da6ca7b475194061ec287d7c30fB.jpg'
+				img: 'https://ae01.alicdn.com/kf/Hb8bf590ade3c41c289ca6b2b7f28ee58r.jpg'
 			}, {
 				href: 'https://www.piqsels.com/zh/',
 				title: 'piqsels',
 				desc: '基于CC0协议的免版税图库，个人和商业免费使用，无需归属',
 				address: 'US',
 				type: '设计',
+				tag: '免费图片',
 				date: '2019-08-02 15:41:40',
 				img: 'https://ae01.alicdn.com/kf/H6db188278d944861a2d8aae28e42559cO.jpg'
 			}, {
@@ -92,16 +94,18 @@ function getGallery() {
 				desc: '分享的免费图片和视频',
 				address: 'US',
 				type: '设计',
+				tag: '免费图片',
 				date: '2019-08-02 15:55:14',
-				img: 'https://ae01.alicdn.com/kf/H2fd22fba898949c997fd2c66a541427c6.jpg'
+				img: 'https://ae01.alicdn.com/kf/Hd08c07e6a6cd4ac98c5ec7afa03ba04e0.jpg'
 			}, {
 				href: 'https://magdeleine.co/',
 				title: 'Magdeleine',
 				desc: '为您每天精心挑选的免费照片',
 				address: 'DE',
 				type: '设计',
+				tag: '免费图片',
 				date: '2019-08-02 16:01:31',
-				img: 'https://ae01.alicdn.com/kf/Hd7e4b06c539f4b8d966dde91f2b93324x.jpg'
+				img: 'https://ae01.alicdn.com/kf/H6c0ac12047e44eb7952ca3c6887910d7s.jpg'
 			}
 			]
 		},
@@ -147,10 +151,10 @@ function getGallery() {
 			data: [{
 					href: 'http://8ya.jp/',
 					title: '八屋',
-					tag: '餐饮',
 					desc: '简洁的卖茶网站',
 					address: 'JP',
 					type: '电子商务',
+					tag: '餐饮',
 					date: '2019-7-29 11:30:00',
 					img: 'https://ae01.alicdn.com/kf/H92563bb0900c4e759dcac515a472afb9F.jpg'
 				},
@@ -160,6 +164,7 @@ function getGallery() {
 					desc: '卖口红',
 					address: 'JP',
 					type: '电子商务',
+					tag: '美妆',
 					date: '2019-7-29 12:41:28',
 					img: 'https://ae01.alicdn.com/kf/Hd24155f483e64a36aaf847da9e407d98B.png'
 				},
@@ -170,7 +175,7 @@ function getGallery() {
 					address: 'KR',
 					type: '电子商务',
 					date: '2019-08-05 14:59:42',
-					img: 'https://ae01.alicdn.com/kf/Hee1362f62c86463280c1979e210a734bE.jpg'
+					img: 'https://ae01.alicdn.com/kf/H464b40cb4a854119be09eff1f62d62b3D.jpg'
 				},
 				{
 					href: 'http://www.tayunguan.cn/',
@@ -178,9 +183,20 @@ function getGallery() {
 					desc: '着我汉家衣裳，兴我礼仪之邦',
 					address: 'CN',
 					type: '电子商务',
+					tag: '穿搭',
 					date: '2019-08-05 15:27:33',
-					img: 'https://ae01.alicdn.com/kf/H700b6df4648e4dcaa90d2fee6f0625edA.jpg'
-				}
+					img: 'https://ae01.alicdn.com/kf/H5a3d19a61ae7428eacc55079fd695138m.jpg'
+				},
+				{
+					href: 'https://tagpic.jp/',
+					title: '风格世界',
+					desc: '为个人和组织建立一种品牌风格',
+					address: 'JP',
+					type: '电子商务',
+					tag: '穿搭',
+					date: '2019-08-09 17:14:53',
+					img: 'https://ae01.alicdn.com/kf/H73e99a1d0f6148cebbb91be336f2b8e6Y.jpg'
+				},
 			]
 		},
 		{
@@ -240,20 +256,21 @@ const GALLERYOBJ = {
 	'type': '类型',
 	'title': '名称',
 	'desc': '描述',
-	'address': '国家'
+	'address': '国家',
+	'tag': '标签'
 }
 const GALLERYOBJCN = {
 	'类型': 'type',
 	'名称': 'title',
 	'描述': 'desc',
-	'国家': 'address'
+	'国家': 'address',
+	'标签': 'tag'
 }
 
 const ACOLORS = [244, 124, 72, 1]
 const ACOLOR = 'rgba(' + ACOLORS.join() +  ')'
 const BCOLORS = [255, 255, 255, 1]
 const BCOLOR = 'rgba(' + BCOLORS.join() +  ')'
-
 
 Vue.use(VueLazyload, {
 	preLoad: 1.3,
@@ -262,7 +279,6 @@ Vue.use(VueLazyload, {
 	attempt: 1
 })
 		
-/* 渲染数据 */
 const vueModel = new Vue({
 	el: '#app',
 	data() {
@@ -297,6 +313,11 @@ const vueModel = new Vue({
 			searchAlert: false,
 			gallery,
 			mode: 'th'
+		}
+	},
+	computed: {
+		galleryData() {
+			return this.gallery.filter(item => item.data)
 		}
 	},
 	mounted() {
@@ -357,13 +378,6 @@ const vueModel = new Vue({
 					this.galleryNavSwiper.slides.eq(0).css('color', ACOLOR)
 				}, 0)
 			})
-		},
-		hanlderTag(type, value) {
-			const filterRes = this.filterRes([{
-				name: value,
-				group: GALLERYOBJ[type]
-			}])
-			this.setSearchRes(filterRes)
 		},
 		searchAlertOpen() {
 			this.searchAlert = true
@@ -430,7 +444,9 @@ function initFn() {
 		watchSlidesProgress: true,
 		resistanceRatio: 0,
 		roundLengths: true,
-		hashNavigation: true,
+		hashNavigation: {
+			watchState: true
+		},
 		// lazy: {
 		// 	loadPrevNext: true
 		// },
@@ -530,39 +546,51 @@ function initFn() {
 		}
 	}
 	
-	const titleList = []
-	const descList = []
-	const addressList = []
+	let titleList = []
+	let descList = []
+	let addressList = []
+	let tagList = []
 	
 	__this.__allGallery.forEach(item => {
 		titleList.push({ name: item.title })
 		descList.push({ name: item.desc })
+		tagList.push({ name: item.tag })
 		addressList.push({
 			name: ADDRESSOBJ[item.address],
 			value: item.address
 		})
 	})
+	tagList = _.uniqBy(tagList, 'name')
+	addressList = _.uniqBy(addressList, 'name')
+	titleList = _.uniqBy(titleList, 'name')
+	descList = _.uniqBy(descList, 'name')
+	
 	const source = {}
+	source[GALLERYOBJ.tag] = {
+		display: ['name', 'value'],
+		data: tagList,
+		template: '<span>{{name}}</span>'
+	}
 	source[GALLERYOBJ.address] = {
 		display: ['name', 'value'],
-		data: _.uniqBy(addressList, 'name'),
+		data: addressList,
 		template: '<span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-{{value}}"></use></svg><span class="pl-2 pr-2">{{name}}</span><small>{{value}}</small></span>'
 	}
 	source[GALLERYOBJ.title] = {
 		display: ['name', 'value'],
-		data: _.uniq(titleList)
+		data: titleList
 	}
 	source[GALLERYOBJ.desc] = {
 		display: ['name', 'value'],
-		data: _.uniq(descList)
+		data: descList
 	}
 	
 	const $searchInput = $('#search-input')
 	const $typeahead = $.typeahead({
 		input: $searchInput,
 		minLength: 0,
-		maxItem: 100,
-		// maxItemPerGroup: 5,
+		maxItem: 100, // 最多100条搜索结果
+		maxItemPerGroup: 20, // 每个分类最多20条搜索结果
 		group: {
 			template: "{{group}}"
 		},
@@ -603,4 +631,7 @@ function initFn() {
 			window.open($(this).data('href'), '_blank', ''); 
 		}
 	})
+	
+	$('body').removeClass('loading')
+	
 }
