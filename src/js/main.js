@@ -230,11 +230,27 @@ function getGallery() {
 			data: [{
 				href: 'http://themedesigner.in/demo/admin-press/main/index.html',
 				title: 'admin-press',
-				desc: '个人非常喜欢这套UI',
+				desc: '个人非常喜欢这套管理模板',
 				address: 'IN',
 				type: '后台模板',
 				date: '2019-7-29 16:39:22',
 				img: 'https://ae01.alicdn.com/kf/Hb44773289b114aa1ab9a43fead1af9950.jpg'
+			},{
+				href: 'http://html.codedthemes.com/gradient-able/dark',
+				title: 'gradient-able',
+				desc: '暗黑管理模板',
+				address: 'US',
+				type: '后台模板',
+				date: '2019-08-12 14:56:50',
+				img: 'https://ae01.alicdn.com/kf/He6130270d67344e095a18a8aab2be98dc.jpg'
+			},{
+				href: 'http://www.4dogs.cn/lyhtml/index.html',
+				title: '四维创智',
+				desc: '猎鹰安全运维管理平台',
+				address: 'US',
+				type: '后台模板',
+				date: '2019-08-12 15:13:25',
+				img: 'https://ae01.alicdn.com/kf/H663876112b064cd586a98bbb5ea09791U.jpg'
 			}]
 		}
 	]
@@ -378,6 +394,13 @@ const vueModel = new Vue({
 					this.galleryNavSwiper.slides.eq(0).css('color', ACOLOR)
 				}, 0)
 			})
+		},
+		hanlderTag(type, value) {
+			const filterRes = this.filterRes([{
+				name: value,
+				group: GALLERYOBJ[type]
+			}])
+			this.setSearchRes(filterRes)
 		},
 		searchAlertOpen() {
 			this.searchAlert = true
@@ -615,6 +638,7 @@ function initFn() {
 		debug: true
 	})
 	
+	// 移动端防穿透
 	let $inputStatus = true
 	$searchInput.on('focus', function() {
 		if (DEVICE === 'mobile') $inputStatus = false
@@ -626,7 +650,6 @@ function initFn() {
 		}
 	})
 	$('#gallery-box').on('click', 'a', function() {
-		console.log($inputStatus);
 		if ($inputStatus) {
 			window.open($(this).data('href'), '_blank', ''); 
 		}

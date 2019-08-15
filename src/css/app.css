@@ -22,9 +22,6 @@ a:active {
 * {
   font-family: "Source Sans Pro", "Hiragino Sans GB", "Microsoft Yahei", SimSun, Helvetica, Arial, Sans-serif;
 }
-small {
-  color: #777;
-}
 @media (max-width: 577px) {
   html {
     font-size: 12px;
@@ -269,13 +266,13 @@ body {
   border-radius: 0.5rem;
 }
 .gallery-box .gallery-item .gallery-item-text {
-  padding: .5rem 1rem 0;
+  padding: .5rem 0 0;
 }
-.gallery-box .gallery-item .gallery-item-text .desc {
-  font-size: 0.75rem;
+.gallery-box .gallery-item .gallery-item-text small {
+  color: #777;
 }
 .gallery-box .gallery-item .gallery-item-meta {
-  padding: .5rem 1rem 0;
+  padding: .5rem 1rem 0 0;
 }
 .gallery-box .gallery-item .gallery-item-meta .tag,
 .gallery-box .gallery-item .gallery-item-meta .address {
