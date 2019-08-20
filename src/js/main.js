@@ -154,7 +154,6 @@ function getGallery() {
 					desc: '简洁的卖茶网站',
 					address: 'JP',
 					type: '电子商务',
-					tag: '餐饮',
 					date: '2019-7-29 11:30:00',
 					img: 'https://ae01.alicdn.com/kf/H92563bb0900c4e759dcac515a472afb9F.jpg'
 				},
@@ -164,7 +163,6 @@ function getGallery() {
 					desc: '卖口红',
 					address: 'JP',
 					type: '电子商务',
-					tag: '美妆',
 					date: '2019-7-29 12:41:28',
 					img: 'https://ae01.alicdn.com/kf/Hd24155f483e64a36aaf847da9e407d98B.png'
 				},
@@ -202,6 +200,20 @@ function getGallery() {
 		{
 			name: 'bolg',
 			title: '个人'
+		},
+		{
+			name: 'trip',
+			title: '旅游民宿',
+			data: [{
+				href: 'https://www.66nord.com/',
+				title: '66nord',
+				desc: '极地旅行专家',
+				address: 'FR',
+				type: '旅游',
+				date: '2019-08-16 16:07:10',
+				img: 'https://ae01.alicdn.com/kf/Hc22af59c17a24f4ab6cc22ea7cc0fd8f0.jpg'
+			}
+			]
 		},
 		{
 			name: 'site',
